@@ -83,5 +83,30 @@ p の定義により、
 ## 解答
 
 ```swift
+// 例: 区間を4つ用意する
+let i: [(Int, Int)] = [
+  (5, 7),
+  (2, 4),
+  (3, 10),
+  (9, 10),
+]
+
+var sorted = i
+var picked = [(Int, Int)]()
+
+while !sorted.isEmpty {
+  // 終端が若いものから順にソート
+  sorted.sort(by: { $0.1 <= $1.1 })
+
+  let first = sorted.removeFirst()
+  picked.append(first)
+
+  // 最初の要素と範囲がかぶっているものを削除する
+  sorted.removeAll(where: { target in
+    return target.0 < first.1
+  })
+}
+
+print("Picked items are", picked)
 ```
 
