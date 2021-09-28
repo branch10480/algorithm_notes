@@ -7,4 +7,5 @@
 | |動的計画法|[動的計画法導入](dynamic_programming/introduction.md)<br>[カエル問題](dynamic_programming/frog.md)<br>[動的計画法の諸概念 - 緩和](dynamic_programming/relaxation.md)<br>[push based と pull based](dynamic_programming/pull_or_push_based.md)<br>[全探索のメモ化としての動的計画法](dynamic_programming/memoization.md)<br>[ナップザック問題](dynamic_programming/knapsack.md)<br>[編集距離](dynamic_programming/edit_distance.md)<br>[区間分割最適化](dynamic_programming/division.md)|
 |二分探索|二分探索|[配列の二分探索](binary_search/array.md)<br>[二分探索の一般化1](binary_search/generalization1.md)<br>[二分探索の一般化2](binary_search/generalization2.md)<br>[最適化問題を判定問題に](binary_search/generalization_into_judgement.md)<br>[メディアンを求める](binary_search/median.md)|
 |貪欲法|貪欲法|[貪欲法とは](greedy/about_greedy.md)<br>[スケジューリング問題](greedy/interval_scheduling.md)<br>[単調性](greedy/monotonicity.md)|
-|データ構造<br>（データの持ち方）|配列|[配列](data_structure/array/array.md)|
+|データ構造<br>（データの持ち方）|配列|[配列](data_structure/array.md)|
+| |連結リスト|[連結リスト](data_structure/linked_list.md)|
