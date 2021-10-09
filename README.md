@@ -10,3 +10,5 @@
 |データ構造<br>（データの持ち方）|配列|[配列](data_structure/array.md)|
 | |連結リスト|[連結リスト](data_structure/linked_list.md)|
 | |ハッシュテーブル|[ハッシュテーブル](data_structure/hash_table.md)|
+| |スタックとキュー|-- 略 --|
+| |グラフと木|[グラフ](graph_and_tree/graph.md)<br>[木](graph_and_tree/tree.md)|
