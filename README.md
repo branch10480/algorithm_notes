@@ -9,3 +9,4 @@
 |貪欲法|貪欲法|[貪欲法とは](greedy/about_greedy.md)<br>[スケジューリング問題](greedy/interval_scheduling.md)<br>[単調性](greedy/monotonicity.md)|
 |データ構造<br>（データの持ち方）|配列|[配列](data_structure/array.md)|
 | |連結リスト|[連結リスト](data_structure/linked_list.md)|
+| |ハッシュテーブル|[ハッシュテーブル](data_structure/hash_table.md)|
