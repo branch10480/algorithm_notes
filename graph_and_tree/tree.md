@@ -169,5 +169,81 @@ N = 1 + 2^1 + 2^2 + ... + 2^h = 2^h+1 - 1
 - 配列中の添え字が k である頂点の左右の子頂点の、配列中の添え字がそれぞれ `2k + 1`、`2k + 2` になる
 - 配列中の添え字が k である頂点の親頂点の、配列の添え字が `(k - 1)/2` になる 
 
+#### ヒープの挿入
 
+1. 配列最後尾に要素を追加する
+2. 自身の親頂点と比較し、自身のほうが大きければ親と自身を入れ替える
+3. 2 を繰り返し、親頂点>自身 または自身が leaf となった時点で終了
+
+計算量は深さに依存するため、 `O(logN)` となる。
+
+#### ヒープから最大値（ルート）を削除する
+
+1. 配列最初を削除し、配列最後尾をルートに据える
+2. 自身の子のうち大きい方と比較し、自身のほうが小さければその子と位置を入れ替える
+3. 自身>子のうち大きい方 となる または 自身が leaf になるまで繰り返す
+
+計算量は深さに依存するため、 `O(logN)` となる。
+
+#### Swift での Heap
+
+```swift
+public struct Heap<T: Comparable> {
+  private var nodes: [T] = []
+  public init() {}
+  
+  /// 最大値を得る
+  public var top: T? {
+    nodes.first
+  }
+  
+  /// 最大値を削除
+  @discardableResult
+  public mutating func pop() -> T? {
+    guard let lastElement = nodes.popLast() else {
+      return nil
+    }
+    let originalRoot = nodes.first
+    
+    // 添字：根（Root）から下ろしていく）
+    var i = 0
+    nodes[0] = lastElement
+    // 子の左側の頂点の添字は 2*i + 1 、よって while の評価式はまだ調べるべき要素があるかを判定している
+    while 2*i + 1 < nodes.count {
+      typealias Child = (index: Int, value: T)
+      var indexOfBiggerChild = 2*i + 1
+      if 2*i + 2 < nodes.count, nodes[2*i + 2] > nodes[2*i + 1] {
+        indexOfBiggerChild = 2*i + 2
+      }
+      if nodes[indexOfBiggerChild] > nodes[i] {
+        nodes[i] = nodes[indexOfBiggerChild]
+        i = indexOfBiggerChild
+        continue
+      }
+      break
+    }
+    nodes[i] = lastElement
+    
+    return originalRoot
+  }
+  
+  /// Heap に新しく要素を追加
+  public mutating func push(_ element: T) {
+    // 最後尾に要素を追加
+    nodes.append(element)
+    // 最後尾の添字
+    var i = nodes.count - 1
+    while i > 0 {
+      let parentIndex = (i - 1)/2
+      if element > nodes[parentIndex] {
+        nodes[i] = nodes[parentIndex]
+        i = parentIndex
+        continue
+      }
+      break
+    }
+    nodes[i] = element
+  }
+}
+```
 
