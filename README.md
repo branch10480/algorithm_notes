@@ -11,4 +11,4 @@
 | |連結リスト|[連結リスト](data_structure/linked_list.md)|
 | |ハッシュテーブル|[ハッシュテーブル](data_structure/hash_table.md)|
 | |スタックとキュー|-- 略 --|
-| |グラフと木|[グラフ](graph_and_tree/graph.md)<br>[木](graph_and_tree/tree.md)|
+| |グラフと木|[グラフ](graph_and_tree/graph.md)<br>[木](graph_and_tree/tree.md)<br>[Union-Find](graph_and_tree/union_find.md)|
