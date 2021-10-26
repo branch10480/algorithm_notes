@@ -76,5 +76,23 @@ func root(x: Int) -> Int {
 }
 ```
 
-TODO: 経路圧縮の場合の処理から！
+次に root(x) に経路圧縮するときのことを考えます。
+
+具体的には **xから上へと進んでいって根に到達するまでの経路中の頂点に対し、その親を根に張り替える** という作業です。
+
+複雑そうに聞こえますが、以下のように簡単に実装できます。
+
+```swift
+func root(x: Int) -> Int {
+  if parent[x] == -1 {
+    return x              // x が根の場合は x を返す
+  }
+  else {
+    parent[x] = root(parent[x])   // x の親 parent[x] を根に設定する
+    return parent[x]
+  }
+}
+```
+
+TODO: このコードの解説から！
 
