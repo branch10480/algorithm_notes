@@ -145,5 +145,65 @@ public struct UnionFind {
     return size[root(vIndex: v)]
   }
 }
+
+// MARK: - Main
+func main() {
+  var uf = UnionFind(vCount: 7)   // {0}, {1}, {2}, {3}, {4}, {5}, {6}
+  
+  uf.unite(1, 2)                  // {0}, {1, 2}, {3}, {4}, {5}, {6}
+  uf.unite(2, 3)                  // {0}, {1, 2, 3}, {4}, {5}, {6}
+  uf.unite(5, 6)                  // {0}, {1, 2, 3}, {4}, {5, 6}
+  
+  print(uf.isSame(1, 3))          // true
+  print(uf.isSame(2, 5))          // false
+  
+  uf.unite(1, 6)                  // {0}, {1, 2, 3, 5, 6}, {4}
+  
+  print(uf.isSame(2, 5))          // true
+}
+
 ```
+
+## 無向グラフにおける連結成分個数を数える問題
+
+この問題は **Union-Find を使い、連結成分をグループとして扱う** ことで解くことができます。
+
+各辺 `e=(u, v)` に対し、 `unite(u, v)` を繰り返し、これにより Union-Find に含まれる根付き木の個数を求めるを求める問題へと帰着できます。
+
+Union-Find 中の **根付き木の根となっている頂点の個数** を数えます。
+
+具体的には `root(x) == x` となる x を数えます。
+
+```swift
+// 頂点数
+let vCount = N
+// 辺数
+let edges: [(Int, Int)] = []
+let eCount = edges.count
+
+// Union-Find を要素数 N で初期化
+var uf = UnionFind(vCount: N)
+
+// 各辺に関する処理
+for i in 0..<M {
+  let e = edges[i]
+  uf.unite(e.0, e.1)    // a を含むグループと b を含むグループとを併合する
+}
+
+// 集計
+var result = 0
+// 頂点の数だけ処理
+for i in 0..<N {
+  if uf.root(i) == i {
+    result += 1
+  }
+}
+print("連結成分の個数は \(result) 個")
+```
+
+# まとめ
+
+Union-Find は **グループを効率的に管理するデータ構造** でした。
+
+グラフに関する問題の多くは Union-Find によって解くことができます。
 
