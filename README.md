@@ -14,3 +14,4 @@
 | |グラフと木|[グラフ](graph_and_tree/graph.md)<br>[木](graph_and_tree/tree.md)<br>[Union-Find](graph_and_tree/union_find.md)|
 |ソート|概要|[概要](sort/index.md)|
 | |挿入ソート|[挿入ソート](sort/insertion_sort.md)|
+| |マージソート|[マージソート](sort/merge_sort.md)|
